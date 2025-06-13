@@ -299,7 +299,7 @@ int main(){
 }
  */
 
-
+/*
 //ex 13- 13
 #include <stdio.h>
 void test(){
@@ -316,4 +316,132 @@ int main(){
   test();
   printf("%d\n", TRUE);
   return 0;
+}
+ */
+/*
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct employee {
+  char* name;
+  int resident_no;
+};
+
+int main() {
+  struct employee seller, *p;
+
+  p = &seller;
+  p -> name = "John";
+  puts(p->name);
+
+  p -> name = (char*)malloc(sizeof(char)*40);
+  //힙 영역에 40바이트 확보
+
+  if(p -> name == NULL){
+    printf("No mem\n");
+    exit(1);
+  }
+
+  strcpy(p -> name, "John Lee"); // p -> name이 가리키는 곳으로 문자열이 복사
+  puts(p -> name);
+  free(p -> name);
+  p-> name = NULL;
+
+  return 0;
+}*/
+
+/*
+
+#include <stdio.h>
+#include <stdlib.h>
+struct employee{
+  int entry;
+  char name[20];
+  char phone[15];
+};
+
+int main(){
+  struct employee arr[3] =
+      {{2011,"John", "12232-2142"}
+      ,{2015, "Kim", "12421-14215"}
+      ,{2019, "Park", "1223-224252"}};
+
+  for(int i=0;i<3;i++){
+    printf("%d, %s, %s\n", arr[i].entry, arr[i].name, arr[i].phone);
+  }
+
+  return 0;
+}
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+/*
+typedef struct{
+  int id;
+  char name[20];
+}studentType;
+
+int main(){
+  int i, count = 0;
+  studentType student, student2;
+
+  FILE *dest = fopen("student.bin", "wb");
+
+  student.id = 2023;
+  strcpy(student.name, "James");
+
+  count = fwrite(&student, sizeof(studentType), 1, dest);
+
+  fclose(dest);
+
+  FILE *src = fopen("student.bin", "rb");
+
+  fread(&student2, sizeof(studentType), 1, src);
+
+  printf("%d %s \n", student2.id, student2.name);
+  fclose(src);
+
+  return 0;
+}
+ */
+/*
+int main() {
+  int arr[4];
+
+  printf("&arr[0] = %p\n", &arr[0]);
+  printf("&arr[0]+1 = %p\n", &arr[0]+1);
+  printf("arr[1] = %p\n", &arr[1]);
+
+  printf("arr = %p\n", arr);
+  printf("arr+1 = %p\n", arr+1);
+
+  printf("&arr = %p\n", &arr);
+  printf("&arr+1 = %p\n", &arr+1);
+
+  return 0;
+
+
+}
+
+ */
+
+
+int main() {
+  char dest[30], src[10];
+
+  gets(dest);
+  gets(src);
+
+  strcat(dest, src);
+
+  printf("%s\n", dest);
+
+  return 0;
+
 }
